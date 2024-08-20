@@ -20,41 +20,45 @@
         </div>
     </div>
     <div class="checkout-container">
-        <div class="cart-items">
-            <div class="cart-item" id="cartItemTemplate">
-                <img src="" alt="Item Image" class="item-image">
-                <div class="item-details">
-                    <h4 class="item-name"></h4>
-                    <p class="item-quantity"></p>
-                </div>
-                <div class="quantity-controls">
-                    <button class="decrement-btn">-</button>
-                    <span class="quantity">1</span>
-                    <button class="increment-btn">+</button>
-                </div>
-                <div class="item-price"></div>
+    <div class="cart-items">
+        <div class="cart-item" id="cartItemTemplate">
+            <img src="" alt="Item Image" class="item-image">
+            <div class="item-details">
+                <h4 class="item-name"></h4>
+                <p class="item-quantity"></p>
             </div>
+            <div class="quantity-controls">
+                <button class="decrement-btn">-</button>
+                <span class="quantity">1</span>
+                <button class="increment-btn">+</button>
+            </div>
+            <div class="item-price"></div>
         </div>
-    
-        <div class="bill-details">
-            <h3>Bill Details</h3>
-            <p>MRP Total: <span id="mrpTotal">₹0</span></p>
-            <p>Handling Fee: <span id="handlingFee">₹5</span></p>
-            <p>Delivery Partner Fee: <span id="deliveryFee">₹16</span></p>
-            <hr>
-            <p>To Pay: <span id="totalToPay">₹0</span></p>
-        </div>
-    
-        <div class="delivery-details">
-            <h3>Delivery Details</h3>
-            <input type="text" id="flatBlock" placeholder="House / Flat / Block No." required>
-            <input type="text" id="roadArea" placeholder="Apartment / Road / Area" required>
-            <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
-        </div>
-    
-    <button class="checkout-btn" id="checkout-btn">CHECKOUT</button></div>
     </div>
-    
+
+    <div class="bill-details">
+        <h3>Bill Details</h3>
+        <p>MRP Total: <span id="mrpTotal">₹0</span></p>
+        <p>Handling Fee: <span id="handlingFee">₹5</span></p>
+        <p>Delivery Partner Fee: <span id="deliveryFee">₹16</span></p>
+        <hr>
+        <p>To Pay: <span id="totalToPay">₹0</span></p>
+    </div>
+
+    <div class="delivery-details">
+        <h3>Delivery Details</h3>
+        <input type="text" id="flatBlock" placeholder="House / Flat / Block No." required>
+        <input type="text" id="roadArea" placeholder="Apartment / Road / Area" required>
+        <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+    </div>
+
+    <button class="checkout-btn" id="checkout-btn">CHECKOUT</button></div>
     <script src="checkout.js"></script>
 </body>
 </html>
+
+
+
+
+
+
