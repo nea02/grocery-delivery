@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Mart - Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body class="cart-page">
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Instant Mart Logo">
+        </div>
+        <div class="cart-user">
+            <span class="cart-icon">
+                <img src="images\cart.png" alt="Cart">
+                <span class="cart-count">0</span>
+            </span>
+            <span class="user-icon">
+                <img src="images\user.png" alt="User">
+            </span>
+        </div>
+    </header>
+
+    <!-- Top Ribbon with Logo, Website Name, and Cart Icon -->
+    <div class="top-ribbon">
+        <div class="center-name">
+            <span class="website-name">Instant Mart</span>
+        </div>
+        
+    </div>
+
+    <!-- Top Bar with Back Arrow and Search Bar -->
+    <div class="top-bar">
+        <div class="back-arrow">
+            <img src="back_arrow.png" alt="Back" id="back-arrow">
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for groceries...">
+            <button class="search-btn">🔍</button>
+            <button id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div id="resultsContainer"></div> <!-- This is where search results will be shown -->
+
+    <div class="items-container">
+        <!-- Sample Item: Apple -->
+        <div class="item">
+            <img src="images\apple.png" alt="Apple" class="item-image">
+            <div class="item-details">
+                <h3>Apple</h3>
+                <p>Fresh red apples</p>
+                <p class="price">100₹/0.5kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+    
+        <div class="item">
+            <img src="images\banana.png" alt="Banana" class="item-image">
+            <div class="item-details">
+                <h3>Banana</h3>
+                <p>Ripe yellow bananas</p>
+                <p class="price">30₹/1kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+    
+        <div class="item">
+            <img src="images\carrot.png" alt="Carrot" class="item-image">
+            <div class="item-details">
+                <h3>Carrot</h3>
+                <p>Organic carrots</p>
+                <p class="price">20₹/0.25kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+    
+        <div class="item">
+            <img src="images\brocoli.png" alt="Broccoli" class="item-image">
+            <div class="item-details">
+                <h3>Broccoli</h3>
+                <p>Fresh green broccoli</p>
+                <p class="price">40₹/0.3kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="images\spinach.png" alt="Spinach" class="item-image">
+            <div class="item-details">
+                <h3>Spinach</h3>
+                <p>Fresh green Spinach</p>
+                <p class="price">40₹/0.3kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="images\capsicum.png" alt="Capsicum" class="item-image">
+            <div class="item-details">
+                <h3>Capsicum</h3>
+                <p>Fresh green Capsicum</p>
+                <p class="price">40₹/0.3kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="images\tomato.png" alt="Tomato" class="item-image">
+            <div class="item-details">
+                <h3>Tomato</h3>
+                <p>Fresh red Tomato</p>
+                <p class="price">40₹/0.3kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="images\gchilli.png" alt="Green chilli" class="item-image">
+            <div class="item-details">
+                <h3>Green chilli</h3>
+                <p>Fresh green chilli</p>
+                <p class="price">40₹/0.3kg</p>
+            </div>
+            <div class="item-controls">
+                <button class="decrease-btn">-</button>
+                <span class="item-count">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+        </div>
+    
+        <!-- Add more items here, up to 20-30 different items -->
+        <!-- Example: Tomato, Spinach, Potatoes, Onions, etc. -->
+    </div>
+    <div id="popupMessage">
+        <h3></h3>
+        <button>Close</button>
+    </div>
+    
+    <script src="js/cart.js"></script>
+</body>
+</html>
+
+

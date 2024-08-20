@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Mart - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+    <div class="back-arrow-container">
+        <a href="javascript:history.back()" class="back-arrow">← </a>
+    </div>
+    <div class="login-container">
+        <h1 class="login-heading">Start Shopping Now!</h1>
+        <form id="loginForm">
+            <input type="email" name="email" placeholder="Email *" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Password *" required>
+                <span class="password-toggle" onclick="togglePassword()">👁️</span> <!-- Eye icon for password toggle -->
+            </div>
+            <p>Don't have an account yet? <a href="signup.html">Sign up</a></p>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+    </div>
+
+    <script src="js/login.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
