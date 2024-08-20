@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cartItems = getCartFromLocalStorage(); // Retrieve the cart items from local storage
+    const cartItems = getCartFromLocalStorage();
     displayCartItems(cartItems);
     calculateAndDisplayTotal(cartItems);
 });
@@ -34,6 +34,7 @@ function displayCartItems(cartItems) {
     });
 }
 
+
 function calculateAndDisplayTotal(cartItems) {
     let total = 0;
     cartItems.forEach(item => {
@@ -50,7 +51,6 @@ function calculateAndDisplayTotal(cartItems) {
     document.querySelector('#delivery-fee').textContent = `₹${deliveryFee}`;
     document.querySelector('#total-to-pay').textContent = `₹${totalToPay}`;
 }
-
 
 
     // Handle checkout button click
