@@ -1,2 +1,2 @@
 # grocery-delivery
-A grocery delivery website.
+A grocery delivery website
