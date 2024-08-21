@@ -1,3 +1,4 @@
+// Toggle password visibility
 function togglePasswordVisibility() {
     const passwordField = document.getElementById('password');
     const eyeIcon = document.getElementById('toggle-password-visibility');
@@ -22,13 +23,19 @@ function toggleRepasswordVisibility() {
     }
 }
 
-// Form validation before submission
+// Form validation and client-side submission
 document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
     const password = document.getElementById('password').value;
     const repassword = document.getElementById('repassword').value;
 
+    // Check if passwords match
     if (password !== repassword) {
         alert('Passwords do not match!');
-        event.preventDefault(); // Prevent form submission
+        return; // Stop form submission if passwords don't match
     }
+
+    // Redirect to cart.html after successful validation
+    window.location.href = 'cart.html';
 });
