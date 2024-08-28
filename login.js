@@ -18,6 +18,8 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     const email = event.target.email.value;
     const password = event.target.password.value;
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
 
     // Check if the entered email and password match any in the hardcoded users
     if (users[email] && users[email] === password) {
@@ -29,6 +31,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         alert("Invalid email or password. Please try again.");
     }
 });
+
 
 function togglePassword() {
     const passwordField = document.getElementById("password");
