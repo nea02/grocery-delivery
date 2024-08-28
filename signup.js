@@ -1,4 +1,3 @@
-// Toggle password visibility
 function togglePasswordVisibility() {
     const passwordField = document.getElementById('password');
     const eyeIcon = document.getElementById('toggle-password-visibility');
@@ -23,19 +22,30 @@ function toggleRepasswordVisibility() {
     }
 }
 
-// Form validation and client-side submission
+// Form validation before submission
 document.getElementById('signup-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
     const password = document.getElementById('password').value;
     const repassword = document.getElementById('repassword').value;
 
-    // Check if passwords match
     if (password !== repassword) {
         alert('Passwords do not match!');
-        return; // Stop form submission if passwords don't match
+        event.preventDefault(); // Prevent form submission
     }
-
-    // Redirect to cart.html after successful validation
-    window.location.href = 'cart.html';
 });
+
+// Get the password input and warning span elements
+const passwordInput = document.getElementById('password');
+const passwordWarning = document.getElementById('password-warning');
+
+// Add an event listener to the password input to check its length on input
+passwordInput.addEventListener('input', checkPasswordLength);
+
+// Function to check password length and display warning if necessary
+function checkPasswordLength() {
+  const passwordValue = passwordInput.value;
+  if (passwordValue.length < 8) {
+    passwordWarning.style.display = 'block';
+  } else {
+    passwordWarning.style.display = 'none';
+  }
+}
