@@ -73,10 +73,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    
-    const cartItems = getCartFromLocalStorage();
-    displayCartItems(cartItems);
-    calculateAndDisplayTotal(cartItems);
+mrpTotalElement.textContent = `₹${mrpTotal.toFixed(2)}`;
+
+    const toPay = mrpTotal + handlingFee + deliveryFee;
+    toPayElement.textContent = `₹${toPay.toFixed(2)}`;
+
+    localStorage.setItem('mrpTotal', mrpTotal.toFixed(2));
+
+    // Display total price
+    totalElement.textContent = `Total: ₹${totalPrice.toFixed(2)}`;
 });
 
 function displayCartItems(cartItems) {
