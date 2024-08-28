@@ -10,19 +10,18 @@
     <div class="back-arrow-container">
         <a href="javascript:history.back()" class="back-arrow">← </a>
     </div>
-     <div class="signup-container">
+    <div class="signup-container">
         <h1 class="signup-heading">Join Us</h1>
-        <form id="signup-form" action="cart.html" method="POST">
+        <form id="signup-form">
             <div class="input-container">
                 <input type="email" id="email" placeholder="Email *" required>
             </div>
             <div class="input-container">
-                <input type="password" id="password" placeholder="Password *" required pattern=".{8,}">
+                <input type="password" id="password" placeholder="Password *" required>
                 <span class="eye-icon" id="toggle-password-visibility" onclick="togglePasswordVisibility()">👁️</span>
-                <span id="password-warning" style="display: none;">Minimum 8 characters required for a strong password</span>
             </div>
             <div class="input-container">
-                <input type="password" id="repassword" placeholder="Re-enter Password *" required pattern=".{8,}">
+                <input type="password" id="repassword" placeholder="Re-enter Password *" required>
                 <span class="eye-icon" id="toggle-repassword-visibility" onclick="toggleRepasswordVisibility()">👁️</span>
             </div>
             <p>Already have an account? <a href="login.html">Log In</a></p>
