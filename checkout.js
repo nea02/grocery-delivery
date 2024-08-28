@@ -90,13 +90,28 @@ document.querySelector('.checkout-btn').addEventListener('click', function() {
     const roadArea = document.getElementById('roadArea').value.trim();
     const phoneNumber = document.getElementById('phoneNumber').value.trim();
 
-    // Check if all fields are filled
-    if (!flatBlock || !roadArea || !phoneNumber) {
-        alert("Please fill in necessary delivery details to checkout.");
-        return;  // Stop the execution, do not redirect
+    // Validate Flat/Block and Road/Area fields (non-empty and contain at least one character)
+    const isValidFlatBlock = /^[a-zA-Z0-9\s]+$/.test(flatBlock);
+    const isValidRoadArea = /^[a-zA-Z0-9\s]+$/.test(roadArea);
+
+    // Validate Phone Number (10 digits, all numbers)
+    const isValidPhoneNumber = /^\d{10}$/.test(phoneNumber);
+
+    // Check if all fields are filled and valid
+    if (!isValidFlatBlock) {
+        alert("Please enter a valid Flat/Block No. using characters.");
+        return;
+    }
+    if (!isValidRoadArea) {
+        alert("Please enter a valid Road/Area using characters.");
+        return;
+    }
+    if (!isValidPhoneNumber) {
+        alert("Please enter a valid 10-digit Phone Number.");
+        return;
     }
 
-    // Save order details or any additional logic here (if needed)
-    window.location.href = "thankyou.html";  // Redirect to Thank You page
+    // If all validations pass, redirect to Thank You page
+    window.location.href = "thankyou.html";
 });
     
