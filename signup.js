@@ -39,3 +39,19 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     // Redirect to cart.html after successful validation
     window.location.href = 'cart.html';
 });
+
+const passwordInput = document.getElementById('password');
+const passwordWarning = document.getElementById('password-warning');
+
+// Add an event listener to the password input to check its length on input
+passwordInput.addEventListener('input', checkPasswordLength);
+
+// Function to check password length and display warning if necessary
+function checkPasswordLength() {
+  const passwordValue = passwordInput.value;
+  if (passwordValue.length < 8) {
+    passwordWarning.style.display = 'block';
+  } else {
+    passwordWarning.style.display = 'none';
+  }
+}
