@@ -125,25 +125,3 @@ input[type="password"] {
     padding-right: 15px;
 }
 
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .welcome-heading {
-        font-size: 3em;
-    }
-    .container {
-        max-width: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    .welcome-heading {
-        font-size: 2em;
-    }
-    .container {
-        max-width: 70%;
-    }
-    .btn {
-        padding: 5px 10px;
-    }
-}
