@@ -1,121 +1,103 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', function(event) {
-        const resultsContainer = document.getElementById('resultsContainer');
-        if (!event.target.closest('.search-result') && !event.target.closest('.search-btn')) {
-          resultsContainer.innerHTML = ''; // Clear previous results
-          document.getElementById('search').value = ''; // Clear search bar input field
+    // Array to store cart items
+    let cart = [];
+
+    // Function to update the cart array
+    function updateCart(item, quantityChange) {
+        const existingItem = cart.find(cartItem => cartItem.name === item.name);
+
+        if (existingItem) {
+            existingItem.quantity += quantityChange;
+
+            // Remove item from cart if quantity is 0 or less
+            if (existingItem.quantity <= 0) {
+                cart = cart.filter(cartItem => cartItem.name !== item.name);
+            }
+        } else if (quantityChange > 0) {
+            // Add new item to the cart with the given quantity
+            cart.push({...item, quantity: quantityChange});
         }
-      });
 
-    const cartCountElement = document.querySelector('.cart-count');
-    let cartCount = 0;
-
-    function saveCartToLocalStorage(cart) {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-    
-    function getCartFromLocalStorage() {
-        const cart = localStorage.getItem('cart');
-        return cart ? JSON.parse(cart) : [];
+        console.log(cart);  // Log cart to console for debugging
     }
 
-    function updateCartCountDisplay() {
-        const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartCountElement.textContent = totalCount;
+    // Function to find item by name in the items array
+    function findItemByName(itemName) {
+        return items.find(item => item.name === itemName);
     }
-
-     
 
     // Increase item quantity
     document.querySelectorAll('.increase-btn').forEach(function(button) {
         button.addEventListener('click', function() {
+            const itemName = this.closest('.item').querySelector('h3').textContent;
+            const item = findItemByName(itemName);
             const itemCountElement = this.previousElementSibling;
             let itemCount = parseInt(itemCountElement.textContent);
             itemCount++;
             itemCountElement.textContent = itemCount;
-            cartCount++;
-            cartCountElement.textContent = cartCount;
-            // Example: After updating the cart array or object
-            saveCartToLocalStorage(cart);
+
+            // Update cart
             updateCart(item, 1);
 
+            // Update cart count display
+            cartCount++;
+            cartCountElement.textContent = cartCount;
         });
     });
 
     // Decrease item quantity
     document.querySelectorAll('.decrease-btn').forEach(function(button) {
         button.addEventListener('click', function() {
+            const itemName = this.closest('.item').querySelector('h3').textContent;
+            const item = findItemByName(itemName);
             const itemCountElement = this.nextElementSibling;
             let itemCount = parseInt(itemCountElement.textContent);
             if (itemCount > 0) {
                 itemCount--;
                 itemCountElement.textContent = itemCount;
+
+                // Update cart
+                updateCart(item, -1);
+
+                // Update cart count display
                 cartCount--;
                 cartCountElement.textContent = cartCount;
-                // Example: After updating the cart array or object
-                saveCartToLocalStorage(cart);
-                updateCart(item, 1);
-
             }
         });
     });
 
-    // Cart icon click
+    // Handle the cart icon click to proceed to the checkout page
     document.querySelector('.cart-icon').addEventListener('click', function() {
-        if (cartCount > 0) {
+        if (cart.length > 0) {
+            // Store the cart in localStorage or send it to the server (depending on your backend setup)
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Redirect to checkout page
             window.location.href = "checkout.html";
         } else {
             alert("Your cart is empty!");
         }
     });
 
-    // User dropdown toggle
-    const userIcon = document.querySelector('.user-icon');
-    const userDropdown = document.createElement('div');
-    userDropdown.classList.add('user-dropdown');
-    userDropdown.innerHTML = `
-        <span>Name: John Doe</span>
-        <span>Email: john.doe@example.com</span>
-        <button class="logout-btn">Logout</button>
-    `;
-    document.body.appendChild(userDropdown);
-
-    userIcon.addEventListener('click', function(event) {
-        event.stopPropagation();  // Prevent closing dropdown on clicking user icon
-        userDropdown.style.display = userDropdown.style.display === 'none' || userDropdown.style.display === '' ? 'flex' : 'none';
-    });
-
-    // Hide dropdown on click outside
-    document.addEventListener('click', function() {
-        userDropdown.style.display = 'none';
-    });
-
-    // Logout button click
-    document.querySelector('.logout-btn').addEventListener('click', function() {
-        cartCount = 0;
-        cartCountElement.textContent = cartCount;
-        userDropdown.style.display = 'none';
-        alert("You have logged out successfully!");
-        window.location.href = "index.html"; // Redirect to welcome page
-    });
-
-    // Back arrow functionality
-    const backArrow = document.getElementById('back-arrow');
-    backArrow.addEventListener('click', function() {
-        window.history.back();  // Navigate to the previous page
-    });
-    // Sample items array for demonstration
+    // Sample items array (you may have this already)
     const items = [
-        { name: 'Banana', description: 'Ripe yellow bananas', price: '30₹/1kg', image: 'banana.png' },
-        { name: 'Apple', description: 'Fresh red apples', price: '100₹/0.5kg', image: 'apple.png' },
-        { name: 'Carrot', description: 'Organic carrots', price: '20₹/0.25kg', image: 'carrot.png' },
-        { name: 'Spinach', description: 'Fresh green spinach', price: '100₹/0.5kg', image: 'spinach.png' },
-        { name: 'Tomato', description: 'Fresh red tomato', price: '100₹/0.5kg', image: 'tomato.png' },
-        { name: 'Broccoli', description: 'Fresh broccoli', price: '100₹/0.5kg', image: 'brocoli.png' },
-        { name: 'Capsicum', description: 'Fresh green capsicum', price: '100₹/0.5kg', image: 'capsicum.png' },
-        { name: 'Green chili', description: 'Fresh green chili', price: '100₹/0.5kg', image: 'gchilli.png' }
-
+        { name: 'Banana', description: 'Ripe yellow bananas', price: '45₹/0.5kg', image: 'images/banana.png' },
+        { name: 'Apple', description: 'Fresh red apples', price: '90₹/0.5kg', image: 'images/apple.png' },
+        { name: 'Carrot', description: 'Organic carrots', price: '24₹/0.5kg', image: 'images/carrot.png' },
+        { name: 'Spinach', description: 'Fresh green spinach', price: '30₹/0.5kg', image: 'images/spinach.png' },
+        { name: 'Tomato', description: 'Fresh red tomato', price: '18₹/0.5kg', image: 'images/tomato.png' },
+        { name: 'Broccoli', description: 'Fresh broccoli', price: '103₹/0.5kg', image: 'images/brocoli.png' },
+        { name: 'Capsicum', description: 'Fresh green capsicum', price: '49₹/0.5kg', image: 'images/capsicum.png' },
+        { name: 'Green chilli', description: 'Fresh green chilli', price: '50₹/0.5kg', image: 'images/gchilli.png' },
     ];
+
+    // Cart count display element
+    const cartCountElement = document.querySelector('.cart-count');
+    let cartCount = 0;
+
+
+
+   
 
 
 
@@ -143,33 +125,15 @@ function displayResult(result) {
 
     resultsContainer.appendChild(resultElement);
 
+    // Store the item object in a variable
+    const item = result;
+
     // Add event listeners for increment and decrement buttons
     const quantityElement = resultElement.querySelector('.quantity');
     const incrementBtn = resultElement.querySelector('.increment-btn');
     const decrementBtn = resultElement.querySelector('.decrement-btn');
 
-    function updateCart(item, quantityChange) {
-        let cart = getCartFromLocalStorage(); // Retrieve the cart from local storage
-        const cartItem = cart.find(cartItem => cartItem.name === item.name);
-        if (cartItem) {
-          cartItem.quantity += quantityChange;
-          if (cartItem.quantity <= 0) {
-            cart = cart.filter(cartItem => cartItem.name !== item.name);
-          }
-        } else if (quantityChange > 0) {
-          cart.push({...item, quantity: quantityChange});
-        }
-        saveCartToLocalStorage(cart); // Save the updated cart to local storage
-        updateCartCountDisplay();
-      
-        // Update the quantity of the item in the main cart page
-        const itemElement = document.querySelector(`.item-${item.name}`);
-        if (itemElement) {
-          const quantityElement = itemElement.querySelector('.quantity');
-          quantityElement.textContent = cartItem.quantity;
-        }
-      }
-
+   
 
 
     incrementBtn.addEventListener('click', function() {
@@ -177,7 +141,6 @@ function displayResult(result) {
         quantityElement.textContent = ++quantity;
         increaseCartCount();
         // Example: After updating the cart array or object
-        saveCartToLocalStorage(cart);
         updateCart(item, 1);
 
     });
@@ -188,7 +151,6 @@ function displayResult(result) {
             quantityElement.textContent = --quantity;
             decreaseCartCount();
             // Example: After updating the cart array or object
-            saveCartToLocalStorage(cart);
             updateCart(item, -1);
 
         }
@@ -222,6 +184,53 @@ document.getElementById('search').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         handleSearch();
     }
+});
+
+
+// clear searched items
+document.addEventListener('click', function(event) {
+    const resultsContainer = document.getElementById('resultsContainer');
+    if (!event.target.closest('.search-result') && !event.target.closest('.search-btn')) {
+      resultsContainer.innerHTML = ''; // Clear previous results
+      document.getElementById('search').value = ''; // Clear search bar input field
+    }
+  });
+
+
+
+// Back arrow functionality
+const backArrow = document.getElementById('back-arrow');
+backArrow.addEventListener('click', function() {
+    window.history.back();  // Navigate to the previous page
+});
+
+
+
+const userIcon = document.querySelector('.user-icon');
+const userDropdown = document.createElement('div');
+userDropdown.classList.add('user-dropdown');
+userDropdown.innerHTML = 
+    `<button class="logout-btn">Logout</button>`;
+
+document.body.appendChild(userDropdown);
+
+userIcon.addEventListener('click', function(event) {
+    event.stopPropagation();  // Prevent closing dropdown on clicking user icon
+    userDropdown.style.display = userDropdown.style.display === 'none' || userDropdown.style.display === '' ? 'flex' : 'none';
+});
+
+// Hide dropdown on click outside
+document.addEventListener('click', function() {
+    userDropdown.style.display = 'none';
+});
+
+// Logout button click
+document.querySelector('.logout-btn').addEventListener('click', function() {
+    cartCount = 0;
+    cartCountElement.textContent = cartCount;
+    userDropdown.style.display = 'none';
+    alert("You have logged out successfully!");
+    window.location.href = "index.html"; // Redirect to welcome page
 });
 
 
