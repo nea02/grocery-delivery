@@ -12,37 +12,33 @@
         <div class="cart-user">
             <span class="cart-icon">
                 <img src="cart.png" alt="Cart">
-                <span class="cart-count">0</span>
+                <span class="cart-count"></span>
             </span>
             <span class="user-icon">
                 <img src="user.png" alt="User">
             </span>
         </div>
     </div>
-    <div class="checkout-container">
+   <div class="checkout-container">
     <div class="cart-items">
         <div class="cart-item" id="cartItemTemplate">
-            <img src="" alt="Item Image" class="item-image">
+          
             <div class="item-details">
                 <h4 class="item-name"></h4>
                 <p class="item-quantity"></p>
             </div>
-            <div class="quantity-controls">
-                <button class="decrement-btn">-</button>
-                <span class="quantity">1</span>
-                <button class="increment-btn">+</button>
-            </div>
+            
             <div class="item-price"></div>
         </div>
     </div>
 
     <div class="bill-details">
         <h3>Bill Details</h3>
-        <p>MRP Total: <span id="mrpTotal">₹0</span></p>
-        <p>Handling Fee: <span id="handlingFee">₹5</span></p>
-        <p>Delivery Partner Fee: <span id="deliveryFee">₹16</span></p>
+        MRP Total: <span id="mrp-Total">₹</span>
+        <p>Handling Fee: <span id="handlingFee">₹6</span></p>
+        <p>Delivery Partner Fee: <span id="deliveryFee">₹20</span></p>
         <hr>
-        <p>To Pay: <span id="totalToPay">₹0</span></p>
+        <p>To Pay: <span id="totalToPay">₹</span></p>
     </div>
 
     <div class="delivery-details">
@@ -53,6 +49,7 @@
     </div>
 
     <button class="checkout-btn" id="checkout-btn">CHECKOUT</button></div>
+    <div id="cart-items"></div>
     <script src="checkout.js"></script>
 </body>
 </html>
