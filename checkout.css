@@ -39,19 +39,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 1px 0;
     border-bottom: 1px solid #eee;
 }
-.item-details {
-    display: flex;
-    align-items: center;
-}
-.item-image {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    background-color: #eee;
-}
+
+
 .quantity-control {
     display: flex;
     align-items: center;
@@ -110,29 +102,50 @@ input[type="text"] {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    margin-top: -15px;
 }
 
 .cart-item img {
-    width: 50px;
-    height: 50px;
-}
+    width: 130px;
+    height: 120px;
+    margin-left: 30px;
+}    
 
 .quantity-controls {
     display: flex;
     align-items: center;
 }
 
-.decrement-btn, .increment-btn {
-    background-color: red;
+/* User Dropdown Menu */
+.user-dropdown {
+    display: none; /* hide by default */
+    position: absolute;
+    top: 50px; /* adjust the top position to your liking */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 1; /* ensure it's on top of other elements */
+  }
+  
+  .user-dropdown.flex {
+    display: flex; /* show the dropdown when user icon is clicked */
+    flex-direction: column;
+  }
+.user-dropdown span {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.user-dropdown button {
+    background-color: #d80000;
     color: white;
     border: none;
     padding: 5px 10px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-.item-price {
-    font-weight: bold;
-}
 
 .delivery-details input {
     width: 48%;
@@ -149,3 +162,16 @@ input[type="text"] {
     cursor: pointer;
     font-size: 16px;
 }
+
+.cart-item .item-details h3 {
+    text-align: left;
+    margin-right: 900px;
+  }
+  
+  .cart-item .item-details p {
+    text-align: right;
+    margin-right: 200px;
+  }
+
+  
+  
