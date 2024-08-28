@@ -99,7 +99,7 @@ document.querySelector('.checkout-btn').addEventListener('click', function() {
 
     // Check if all fields are filled and valid
     if (!isValidFlatBlock) {
-        alert("Please enter a valid Flat/Block No. using characters.");
+        alert("Please enter a valid Flat/House No. using characters.");
         return;
     }
     if (!isValidRoadArea) {
