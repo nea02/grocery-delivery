@@ -39,6 +39,41 @@ const cartCountElement = document.querySelector('.cart-count'); // Ensure this i
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartContainer = document.querySelector('.cart-items');
+    const totalElement = document.querySelector('.total-price');
+    const mrpTotalElement = document.getElementById('mrp-Total'); 
+    const toPayElement = document.getElementById('totalToPay');
+    const handlingFee = 6; 
+    const deliveryFee = 20; 
+
+    let totalPrice = 0;
+    let mrpTotal = 0;
+
+    cart.forEach(item => {
+        // Create elements to display each cart item
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+             <img src="${item.image}" alt="${item.name}">
+                <div class="item-details">
+                    <h3>${item.name}</h3>
+                    <p>Price: ${item.price}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Total: ₹${(parseFloat(item.price.match(/\d+/)[0]) * item.quantity).toFixed(2)}</p>
+                </div>
+        `;
+        cartContainer.appendChild(itemElement);
+        // Calculate total price
+        const itemPrice = parseFloat(item.price.match(/\d+/)[0]);  // Corrected: Extract full price
+        const itemTotalPrice = itemPrice * item.quantity;
+        totalPrice += itemTotalPrice;
+        mrpTotal += itemTotalPrice;
+    });
+
+
+    
     const cartItems = getCartFromLocalStorage();
     displayCartItems(cartItems);
     calculateAndDisplayTotal(cartItems);
