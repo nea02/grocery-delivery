@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Sample items array (you may have this already)
     const items = [
-        { name: 'Banana', description: 'Ripe yellow bananas', price: '45₹/0.5kg', image: 'images/banana.png' },
-        { name: 'Apple', description: 'Fresh red apples', price: '90₹/0.5kg', image: 'images/apple.png' },
-        { name: 'Carrot', description: 'Organic carrots', price: '24₹/0.5kg', image: 'images/carrot.png' },
-        { name: 'Spinach', description: 'Fresh green spinach', price: '30₹/0.5kg', image: 'images/spinach.png' },
-        { name: 'Tomato', description: 'Fresh red tomato', price: '18₹/0.5kg', image: 'images/tomato.png' },
-        { name: 'Broccoli', description: 'Fresh broccoli', price: '103₹/0.5kg', image: 'images/brocoli.png' },
-        { name: 'Capsicum', description: 'Fresh green capsicum', price: '49₹/0.5kg', image: 'images/capsicum.png' },
-        { name: 'Green chilli', description: 'Fresh green chilli', price: '50₹/0.5kg', image: 'images/gchilli.png' },
+        { name: 'Banana', description: 'Ripe yellow bananas', price: '45₹/0.5kg', image: ' banana.png' },
+        { name: 'Apple', description: 'Fresh red apples', price: '90₹/0.5kg', image: ' apple.png' },
+        { name: 'Carrot', description: 'Organic carrots', price: '24₹/0.5kg', image: ' carrot.png' },
+        { name: 'Spinach', description: 'Fresh green spinach', price: '30₹/0.5kg', image: ' spinach.png' },
+        { name: 'Tomato', description: 'Fresh red tomato', price: '18₹/0.5kg', image: ' tomato.png' },
+        { name: 'Broccoli', description: 'Fresh broccoli', price: '103₹/0.5kg', image: ' brocoli.png' },
+        { name: 'Capsicum', description: 'Fresh green capsicum', price: '49₹/0.5kg', image: ' capsicum.png' },
+        { name: 'Green chilli', description: 'Fresh green chilli', price: '50₹/0.5kg', image: ' gchilli.png' },
     ];
 
     // Cart count display element
