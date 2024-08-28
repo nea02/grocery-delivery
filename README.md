@@ -15,4 +15,3 @@ Thank You Page: After successful checkout, users are directed to a thank you pag
 Responsive Design: The website is designed to work across various devices, including desktops and mobile devices.
 
 Back Navigation: Implements navigation where pressing the back button redirects to the welcome or cart pages with preserved cart contents.
-
