@@ -2,7 +2,7 @@
 Project Description
 Instant Mart is a simple grocery delivery web application where users can browse and add groceries to their cart, proceed to checkout, and receive an estimated delivery time. The website allows users to sign up, log in, and manage their shopping cart, with all actions backed by a Node.js server. The goal is to provide a smooth and efficient online grocery shopping experience.
 
-Features
+Features:-
 
 User Authentication: Users can sign up, log in, and log out securely.
 
