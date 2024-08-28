@@ -84,13 +84,19 @@ mrpTotalElement.textContent = `₹${mrpTotal.toFixed(2)}`;
     totalElement.textContent = `Total: ₹${totalPrice.toFixed(2)}`;
 });
 
+// Handle checkout button click
+document.querySelector('.checkout-btn').addEventListener('click', function() {
+    const flatBlock = document.getElementById('flatBlock').value.trim();
+    const roadArea = document.getElementById('roadArea').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
 
-          
-   
-    // Handle checkout button click
-    document.querySelector('.checkout-btn').addEventListener('click', function() {
-        // Save order details or any additional logic here (if needed)
-        window.location.href = "thankyou.html";  // Redirect to Thank You page
-    });
-    
+    // Check if all fields are filled
+    if (!flatBlock || !roadArea || !phoneNumber) {
+        alert("Please fill in necessary delivery details to checkout.");
+        return;  // Stop the execution, do not redirect
+    }
+
+    // Save order details or any additional logic here (if needed)
+    window.location.href = "thankyou.html";  // Redirect to Thank You page
+});
     
